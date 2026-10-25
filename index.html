@@ -15,14 +15,13 @@
   h3 { font-size:16px; margin:22px 0 8px; }
   p { margin:9px 0; }
   .sub { color:var(--muted); font-size:14.5px; }
-  .card { background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin:16px 0; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; }
   .kv { background:#fff; border:1px solid var(--line); border-radius:6px; padding:10px 12px; }
   .kv .k { font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
   .kv .v { font-size:15px; font-weight:600; word-break:break-all; }
   table { width:100%; border-collapse:collapse; font-size:13.2px; margin:10px 0 6px; }
   th,td { text-align:left; padding:8px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
-  th { background:var(--soft); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); position:sticky; top:0; }
+  th { background:var(--soft); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
   td.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
   td.addr { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.2px; word-break:break-all; }
   td.share { font-weight:600; }
@@ -65,13 +64,13 @@
 <div class="scroll">
 <table>
   <thead>
-    <tr><th>#</th><th>Address</th><th>Balance (FLAPJAX)</th><th>Share</th><th>Type</th><th>Label and how it was identified</th></tr>
+    <tr><th>#</th><th>Address</th><th>Balance (FLAPJAX, 6 dp)</th><th>Share</th><th>Type</th><th>Label and how it was identified</th></tr>
   </thead>
   <tbody>
       <tr>
         <td class="num">1</td>
         <td class="addr">0xcA93EC685b8623688E6B236f9068034B298c2150</td>
-        <td class="num">20,048,955,849.847998</td>
+        <td class="num">20,048,955,849.847997</td>
         <td class="num share">45.1102%</td>
         <td>Contract</td>
         <td><strong>PancakeSwap v3 FLAPJAX/WBNB pool (1% fee tier)</strong><br><span class="src">BscScan public label &ldquo;PancakeSwap v3: FLAPJAX/WBNB Pool&rdquo;, confirmed by contract state read at the snapshot block: token0() = 0x90c8&hellip;80df (FLAPJAX), token1() = 0xbb4C&hellip;095c (WBNB), factory() = 0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865 (PancakeSwap V3 factory), fee() = 10000.</span></td>
@@ -79,7 +78,7 @@
       <tr>
         <td class="num">2</td>
         <td class="addr">0x740A3B4A91cb8FA47e85d7f9713cA6eC2f8a037e</td>
-        <td class="num">5,619,844,348.598994</td>
+        <td class="num">5,619,844,348.598993</td>
         <td class="num share">12.6446%</td>
         <td>Contract</td>
         <td><strong>PancakeSwap v3 BTCB/FLAPJAX pool (1% fee tier)</strong><br><span class="src">BscScan public label &ldquo;PancakeSwap v3: BTCB/FLAPJAX Pool&rdquo;, confirmed by contract state at the snapshot block: token0() = 0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c (BTCB), token1() = 0x90c8&hellip;80df (FLAPJAX), same PancakeSwap V3 factory, fee() = 10000.</span></td>
@@ -95,7 +94,7 @@
       <tr>
         <td class="num">4</td>
         <td class="addr">0x000000000000000000000000000000000000dEaD</td>
-        <td class="num">1,923,471,159.703771</td>
+        <td class="num">1,923,471,159.703770</td>
         <td class="num share">4.3278%</td>
         <td>Burn address (no code)</td>
         <td><strong>Burn address (Null: 0x000&hellip;dEaD)</strong><br><span class="src">BscScan public label &ldquo;Null: 0x000...dEaD&rdquo;. No bytecode at the snapshot block &mdash; not a contract. This is the canonical 0x&hellip;dEaD sink: tokens sent there are not spendable by any known key, so it is a burn address rather than an ordinary wallet.</span></td>
@@ -103,7 +102,7 @@
       <tr>
         <td class="num">5</td>
         <td class="addr">0x2Ea90fF709B0fB5Decd1dE944F644eECdc26d33A</td>
-        <td class="num">1,175,621,343.198941</td>
+        <td class="num">1,175,621,343.198940</td>
         <td class="num share">2.6451%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Flapjax: Deployer</strong><br><span class="src">BscScan public label &ldquo;Flapjax: Deployer&rdquo; (shown in the Label column of the token&rsquo;s holder table). Not re-derived independently: the token contract was created inside a factory/internal call, so the top-level receipts of its creation block contain no direct contract-creation transaction for it.</span></td>
@@ -135,7 +134,7 @@
       <tr>
         <td class="num">9</td>
         <td class="addr">0x5dEdB37eAa9145dd1A17D385d8c5e256871d6f16</td>
-        <td class="num">611,866,236.479141</td>
+        <td class="num">611,866,236.479140</td>
         <td class="num share">1.3767%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Unlabelled</strong><br><span class="src">No label on BscScan&rsquo;s public holder table and no on-chain identifier found. Left unlabelled rather than guessed.</span></td>
@@ -143,7 +142,7 @@
       <tr>
         <td class="num">10</td>
         <td class="addr">0x9A937A531A3e4B7930A49548b64c4A3471D049E2</td>
-        <td class="num">610,074,149.236059</td>
+        <td class="num">610,074,149.236058</td>
         <td class="num share">1.3727%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Unlabelled</strong><br><span class="src">No label on BscScan&rsquo;s public holder table and no on-chain identifier found. Left unlabelled rather than guessed.</span></td>
@@ -151,7 +150,7 @@
       <tr>
         <td class="num">11</td>
         <td class="addr">0xdBF2BdecF7dfF212880552398b42e0aB997523a7</td>
-        <td class="num">588,854,986.027099</td>
+        <td class="num">588,854,986.027098</td>
         <td class="num share">1.3249%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Unlabelled</strong><br><span class="src">No label on BscScan&rsquo;s public holder table and no on-chain identifier found. Left unlabelled rather than guessed.</span></td>
@@ -159,7 +158,7 @@
       <tr>
         <td class="num">12</td>
         <td class="addr">0x4492cA070A2CaEA1502fb807b389b62aB32Eb0d3</td>
-        <td class="num">586,603,504.417276</td>
+        <td class="num">586,603,504.417275</td>
         <td class="num share">1.3199%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Unlabelled</strong><br><span class="src">No label on BscScan&rsquo;s public holder table and no on-chain identifier found. Left unlabelled rather than guessed.</span></td>
@@ -183,7 +182,7 @@
       <tr>
         <td class="num">15</td>
         <td class="addr">0x4e1D0Ab0c3730469c79c6746d222A28af81367Ee</td>
-        <td class="num">482,021,894.326265</td>
+        <td class="num">482,021,894.326264</td>
         <td class="num share">1.0845%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Unlabelled</strong><br><span class="src">No label on BscScan&rsquo;s public holder table and no on-chain identifier found. Left unlabelled rather than guessed.</span></td>
@@ -223,7 +222,7 @@
       <tr>
         <td class="num">20</td>
         <td class="addr">0x639E263ce57bceE9866F01B1E6166FA20F965239</td>
-        <td class="num">383,287,277.524235</td>
+        <td class="num">383,287,277.524234</td>
         <td class="num share">0.8624%</td>
         <td>Wallet (EOA)</td>
         <td><strong>Unlabelled</strong><br><span class="src">No label on BscScan&rsquo;s public holder table and no on-chain identifier found. Left unlabelled rather than guessed.</span></td>
@@ -231,14 +230,14 @@
   </tbody>
 </table>
 </div>
-<p class="sub">Balances are shown to 6 decimal places for reading. The exact integer values (18 decimals, as returned by the node) are in <a href="data/top20.csv">top20.csv</a> and <a href="data/top20.json">top20.json</a>, and are reproduced below for the first and last row of the table.</p>
+<p class="sub">Amounts are shown to 6 decimal places (an exact truncation of the on-chain integer, not a rounded float). The full 18-decimal integer for every row is in <a href="data/top20.csv">top20.csv</a> and <a href="data/top20.json">top20.json</a>.</p>
 
 <h2>Concentration</h2>
 <div class="big">
-  <div><div class="l">Top 5 hold</div><div class="n">69.9793%</div><div class="sub">31,101,902,050.224704 FLAPJAX</div></div>
-  <div><div class="l">Top 10 hold</div><div class="n">77.4991%</div><div class="sub">34,444,036,377.969865 FLAPJAX</div></div>
+  <div><div class="l">Top 5 hold</div><div class="n">69.9793%</div><div class="sub">31,101,902,050.224703 FLAPJAX</div></div>
+  <div><div class="l">Top 10 hold</div><div class="n">77.4991%</div><div class="sub">34,444,036,377.969864 FLAPJAX</div></div>
   <div><div class="l">Top 20 hold</div><div class="n">88.6180%</div><div class="sub">39,385,785,959.948406 FLAPJAX</div></div>
-  <div><div class="l">Outside the top 20</div><div class="n">11.3820%</div><div class="sub">5,058,658,484.051594 FLAPJAX</div></div>
+  <div><div class="l">Outside the top 20</div><div class="n">11.3820%</div><div class="sub">5,058,658,484.051593 FLAPJAX</div></div>
 </div>
 
 <h3>Contracts versus ordinary wallets</h3>
@@ -255,7 +254,7 @@
 <h3>3. Why this is the top 20 and not a guess at it</h3>
 <p>The candidate addresses come from BscScan&rsquo;s public holder table (a chain index, used only to enumerate candidates &mdash; every number in the table is re-read from a node). That enumeration alone cannot prove nobody was missed, so it is closed as follows:</p>
 <p>A holder that was in the snapshot top 20 and is <em>not</em> in today&rsquo;s top 25 must have moved tokens after the snapshot. So every transfer of FLAPJAX from block 129,454,097 to head was pulled with <code>eth_getLogs</code> (47 transfer events, 33 distinct addresses) and the snapshot balance of every one of those addresses was read as well.</p>
-<p>The largest snapshot balance found among addresses outside today&rsquo;s top 25 is <strong>8,220,000.000000</strong> FLAPJAX (0.0185% of supply). Every other address outside the current top 25 that did not move since the snapshot still holds exactly what it held then, which is at most today&rsquo;s rank-25 balance of <strong>253,650,856.719947</strong> FLAPJAX. The 20th largest holder at the snapshot holds <strong>383,287,277.524235</strong> FLAPJAX (0.8624%). Both bounds sit far below that, so no address outside this table can belong in the top 20 at block 129,454,096.</p>
+<p>The largest snapshot balance found among addresses outside today&rsquo;s top 25 is <strong>8,220,000.000000</strong> FLAPJAX (0.0185% of supply). Every other address outside the current top 25 that did not move since the snapshot still holds exactly what it held then, which is at most today&rsquo;s rank-25 balance of <strong>253,650,856.719947</strong> FLAPJAX. The 20th largest holder at the snapshot holds <strong>383,287,277.524234</strong> FLAPJAX (0.8624%). Both bounds sit far below that, so no address outside this table can belong in the top 20 at block 129,454,096.</p>
 
 <h3>4. Re-check it yourself</h3>
 <p>Any BSC node with archive state at block 129,454,096 answers both calls. Example with <code>curl</code> (replace the node URL with any archive endpoint):</p>
@@ -266,7 +265,7 @@ curl -s -X POST https://bsc-mainnet.public.blastapi.io -H 'Content-Type: applica
 <span class="c"># balanceOf(0xcA93EC685b8623688E6B236f9068034B298c2150) at the same block</span>
 curl -s -X POST https://bsc-mainnet.public.blastapi.io -H 'Content-Type: application/json' --data '{
   "jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x90c8889f428F9Ebb77BB8f15CAD3a50a9aC680df","data":"0x70a08231000000000000000000000000ca93ec685b8623688e6b236f9068034b298c2150"},"0x7b75010"]}'</pre>
-<p>The calls return hex integers with 18 decimals: <code>totalSupply</code> decodes to 44444444444000000000000000000 and the <code>balanceOf</code> call to 20048955849847997966429118451. Raw values for all 20 addresses are in <a href="data/top20.csv">data/top20.csv</a>; <a href="verify.py">verify.py</a> re-runs the whole set against a node and prints the table again.</p>
+<p>The calls return hex integers with 18 decimals. <code>totalSupply</code> decodes to 44444444444000000000000000000; the <code>balanceOf</code> call decodes to 20048955849847997966429118451 (20048955849.847997966429118451 FLAPJAX). Raw values for all 20 addresses are in <a href="data/top20.csv">data/top20.csv</a>; <a href="verify.py">verify.py</a> re-runs the whole set against a node and prints the table again.</p>
 
 <h3>5. Labels: what is a public record and what is not</h3>
 <p>Six addresses carry an identification; fourteen are left unlabelled. Each identification names its source in the table above. Two labels (the PancakeSwap pools) were confirmed from contract state, not only from a label; one (the treasury) rests on FlapJax&rsquo;s own public statement naming that address; two (the deployer and the Infinity Vault) rest on BscScan&rsquo;s public address labels; and the burn address rests on BscScan&rsquo;s label plus the fact that it holds no code.</p>

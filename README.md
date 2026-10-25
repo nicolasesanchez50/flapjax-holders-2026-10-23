@@ -12,9 +12,11 @@ A single-block, from-the-chain holder audit of **FlapJax (FLAPJAX)** on BNB Smar
 | | % of total supply | FLAPJAX |
 |---|---|---|
 | Top 5 | 69.9793% | 31,101,902,050.224703 |
-| Top 10 | 77.4991% | 34,444,036,377.969942 |
-| Top 20 | 88.6180% | 39,385,785,959.948402 |
-| Outside the top 20 | 11.3820% | 5,058,658,484.051598 |
+| Top 10 | 77.4991% | 34,444,036,377.969864 |
+| Top 20 | 88.6180% | 39,385,785,959.948406 |
+| Outside the top 20 | 11.3820% | 5,058,658,484.051593 |
+
+Amounts are exact truncations of the on-chain 18-decimal integer. The 20th holder holds 383,287,277.524234 FLAPJAX.
 
 Of the 20 largest holders: **3 are contracts** (the two PancakeSwap v3 pools and the address BscScan labels "Pancakeswap: Infinity Vault"), **16 are ordinary wallets**, and **1 is the burn address** `0x000000000000000000000000000000000000dEaD` (no bytecode, but not an ordinary wallet — tokens there are not spendable by any known key).
 
@@ -24,7 +26,7 @@ The full ranked table with labels and the source of each label is in `index.html
 
 1. **The block.** A binary search over `eth_getBlockByNumber` timestamps returns the last block strictly before 2026-10-24 05:00:00 UTC. COT is UTC−5 year-round.
 2. **The numbers.** `totalSupply()` and `balanceOf(address)` are read with `eth_call` at exactly block `129454096` on an archive node. Nothing is read at head.
-3. **Candidate coverage.** Candidate addresses come from BscScan's public holder table (used only to enumerate; every number is re-read from a node). To prove no holder was missed at the snapshot, every FLAPJAX `Transfer` from block `129454097` to head was pulled with `eth_getLogs` (47 events, 33 distinct addresses) and the snapshot balance of each of those addresses was read too. The largest snapshot balance among addresses outside today's top 25 is 8,220,000.000000 FLAPJAX; every other address outside today's top 25 that did not move since the snapshot holds at most today's rank-25 balance of 253,650,856.719947. Both are far below the rank-20 balance of 383,287,277.524235, so the top-20 set at that block is exact.
+3. **Candidate coverage.** Candidate addresses come from BscScan's public holder table (used only to enumerate; every number is re-read from a node). To prove no holder was missed at the snapshot, every FLAPJAX `Transfer` from block `129454097` to head was pulled with `eth_getLogs` (47 events, 33 distinct addresses) and the snapshot balance of each of those addresses was read too. The largest snapshot balance among addresses outside today's top 25 is 8,220,000.000000 FLAPJAX; every other address outside today's top 25 that did not move since the snapshot holds at most today's rank-25 balance of 253,650,856.719947. Both are far below the rank-20 balance of 383,287,277.524234 FLAPJAX, so the top-20 set at that block is exact.
 4. **Contract vs wallet.** `eth_getCode` for each of the 20 addresses at the snapshot block.
 
 ## Reproduce

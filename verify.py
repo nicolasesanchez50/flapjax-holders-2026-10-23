@@ -13,6 +13,9 @@ import os
 import sys
 import urllib.error
 import urllib.request
+from decimal import Decimal as D, getcontext
+
+getcontext().prec = 40
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = json.load(open(os.path.join(HERE, "data", "top20.json")))
@@ -69,11 +72,13 @@ def main():
         same = got == want_exact
         ok = ok and same
         share = got / supply * 100 if supply else 0
-        print(f"{holder['rank']:>2}  {holder['addr']:42}  {got / scale:>22,.6f}  {share:>8.4f}%  {'ok' if same else 'MISMATCH'}")
+        w, f = divmod(got, scale)
+        print(f"{holder['rank']:>2}  {holder['addr']:42}  {w:>18,}.{f // 10 ** 12:06d}  {share:>8.4f}%  {'ok' if same else 'MISMATCH'}")
 
     top20 = running / scale
-    print(f"\ntop-20 sum    : {top20:,.6f} FLAPJAX  ({running / supply * 100:.4f}% of supply)" if supply else "")
-    print(f"published     : {DATA['top20_percent']:.4f}%")
+    whole, frac = divmod(running, scale)
+    print(f"\ntop-20 sum    : {whole:,}.{frac // 10 ** 12:06d} FLAPJAX  ({D(running) * 100 / D(supply):.4f}% of supply)")
+    print(f"published     : {DATA['top20_percent']}%")
 
     if ok:
         print("\nPASS: all 20 balances and the total supply match the published snapshot.")
